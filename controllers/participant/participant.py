@@ -9,6 +9,11 @@ robot = Robot()
 leftWheel = robot.getDevice('left wheel')
 rightWheel = robot.getDevice('right wheel')
 
+
+rightWheelSensor = robot.getPositionSensor('right wheel sensor')
+rightWheelSensor.enable(16) # Refreshes the sensor every 16ms.
+rightWheelSensor.getValue()
+
 # Repeat the following 4 times (once for each side).
 for i in range(0, 4):
     # First set both wheels to go forward, so the robot goes straight.
@@ -20,7 +25,7 @@ for i in range(0, 4):
     leftWheel.setPosition(1000)
     rightWheel.setPosition(-1000)
     # Wait until the robot has turned 90 degrees clockwise.
-    robot.step(480)
+    robot.step(452)
 
 # Stop the robot when path is completed, as the robot performance
 # is only computed when the robot has stopped.
